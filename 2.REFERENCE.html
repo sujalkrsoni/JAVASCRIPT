@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload(){
+
+            //-- 1st Method to select the element using dom. but we don't use becuase of complex and when we update element then it occurs problems 
+            // window.document.forms[0].elements[1].value = "Register";
+            // window.document.images[0].src = "https://www.startertutorials.com/ajwt/wp-content/uploads/2014/02/javascript-Dom.gif"
+
+
+            // -- 2nd Method to select elements using "name" but again we don't use it. because it can't select child element 
+            // btn.value = "Register";
+
+
+            // -- 3rd Method to select elements using "id" . it has also a problem because css also use id . and element can have only 1 id .but in some situtation we use it  
+            // document.getElementById("btn").value = "Regi";
+            // document.getElementById("img").src = "https://www.startertutorials.com/ajwt/wp-content/uploads/2014/02/javascript-Dom.gif"
+
+
+            // -- 4th Method to select elements using document.queryselector("") method 
+            // in this method we can select element using id , class, tagname 
+            // document.querySelector("#btn").value = "REGGG"
+            // document.querySelector(".image").src = "https://www.startertutorials.com/ajwt/wp-content/uploads/2014/02/javascript-Dom.gif"
+            // document.querySelector("div #img").src = "https://www.startertutorials.com/ajwt/wp-content/uploads/2014/02/javascript-Dom.gif"
+            // document.querySelector("input + #btn").value = "Register karo"
+
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img id="img" class="image" width="700px" height="500px" border="1px" >
+    </div>
+    <div>
+        <h1>Register</h1>
+        <form action=""> 
+            username : <input type="text" >
+            <input type="button" name="btn" id="btn">
+        </form>
+        <h1>login</h1>
+        <form action="">
+            username : <input type="text">
+            <input type="button" value="login">
+        </form>
+    </div>
+</body>
+</html>
