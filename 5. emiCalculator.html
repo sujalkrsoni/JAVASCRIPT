@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI CALCULATOR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+
+        function amountChange(){
+            document.querySelector("#txtAmount").value = document.querySelector("#rangeAmount").value;
+        }
+        function yearChange(){
+            document.querySelector("#txtYear").value = document.querySelector("#rangeYear").value;
+        }
+        function rateChange(){
+            document.querySelector("#txtRate").value = document.querySelector("#rangeRate").value;
+        }
+        function calEmi(){
+            let P = parseInt(document.querySelector("#txtAmount").value);
+            let R = parseInt(document.querySelector("#txtRate").value)/12/100;
+            let N = parseInt(document.querySelector("#txtYear").value)*12;
+            let EMI = P * R * Math.pow((1+R),N) / Math.pow((1+R),N)-1;
+            document.querySelector("#lblResult").innerHTML = `YOUR EMI AMOUNT EVERY MONTH IS  = <b>${Math.round(EMI)}</b> FOR <b>${N}</b> MONTHS` ;
+
+        }
+    </script>
+</head>
+<body class="container-fluid bg-dark text-light ">
+    <h1 class="text-center text-light ">Personal Loan EMI Calculator </h1>
+    <div class="bg-light text-dark p-4 m-5 rounded-1" >
+
+        <div class="row">
+            <div class="col">
+                Amount you need <input type="text" id="txtAmount">
+            </div>
+            <div class="col">
+                for <input type="text" id="txtYear" size="4"> years
+            </div>
+            <div class="col">
+                Interest rate <input type="text" id="txtRate" size="4"> %
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="range" onchange="amountChange()" class="form-range" id="rangeAmount" min="50000" max="1000000" name="" value="50000">
+            </div>
+            <div class="col">
+                <input type="range" onchange="yearChange()" class="form-range" id="rangeYear" min="1" max="5" value="1">
+            </div>
+            <div class="col">
+                <input type="range" onchange="rateChange()" class="form-range" id="rangeRate" min="10.5" step="0.1" max="21" value="10.5">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col d-flex justify-content-between">
+                <span>&#8377; 50,000</span>
+                <span>&#8377; 10,00,000</span>
+            </div>
+            <div class="col d-flex justify-content-between">
+                <span>1</span>
+                <span>5</span>
+            </div>
+            <div class="col d-flex justify-content-between">
+                <span>10.5 %</span>
+                <span>21 %</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button class="btn btn-primary" id="result" onclick="calEmi()">CALCULATE</button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-center">
+                <span id="lblResult"></span>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="d-flex justify-content-between p-3">
+            <div>Amount you need <button class="btn border-1 pt-1 pb-1 ps-3 pe-3 border-dark text-start">50000</button></div>
+            <div class="start-0">for <button class="btn border-1 pt-1 pb-1 ps-3 pe-3 border-dark ">2</button> years</div>
+            <div>Interest rate <button class="btn border-1 pt-1 pb-1 ps-3 pe-3 border-dark me-2 ">10.5</button>%</div>
+        </div>
+        <div class="d-flex justify-content-between ps-3 pe-3 ">
+            <input class="" style="width: 200px;" type="range">
+            <input class="" style="width: 200px;" type="range">
+            <input class="" style="width: 200px;" type="range">
+        </div>
+        <div class="d-flex justify-content-between  ps-3 pe-3">
+            <div class="d-flex justify-content-between" style="width: 200px;">
+                <div>50,000</div>
+                <div>40,00,000</div>
+            </div>
+            <div class="d-flex justify-content-between" style="width: 200px;">
+                <div>1 year</div>
+                <div>5 year</div>
+            </div>
+            <div class="d-flex justify-content-between" style="width: 200px;">
+                <div>10 %</div>
+                <div>21 %</div>
+            </div>
+
+        </div>
+        <div class="d-flex m-3 justify-content-end">
+            <button class="btn btn-success mb-3">CALCULATE</button>
+        </div> -->
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+ <script>
+   // dataTypes 
+   // 1. primitive 
+   // 2. nonPrimitive
+
+   // primitive 
+   // 1.number 
+   // 2.string
+   // 3.boolean
+   // 4.null
+   // 5.undefined
+   // 6.bigint
+   // 7.symbol
+
+   var price = 56000000.00;
+   document.write("price = " + price.toLocaleString("en-IN",{
+      style : "currency",
+      currency : "INR"
+   }));
+   document.write(" price = " + price.toLocaleString("en-UK",{
+      style : "currency",
+      currency : "USD"
+   }));
+ </script>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            str = location.search;
+            document.querySelector("p").innerHTML = str;
+            document.querySelector("p").innerHTML = str.slice(str.indexOf("=")+1);
+        }
+    </script>
+</head>
+<body onload="bodyload()" >
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function deleteclick(){
+            // alert don't have cancel button 
+            // alert("Are you \nsure to delete ? "); // \n is used to nextline 
+
+            // confirm has cancel button . it has boolean value (0,1)
+            // flag = confirm("Are you want to delete ?")
+            // if(flag == true){
+            //     alert("Deleted Successfully..")
+            // }
+
+            // it shows in new screen {not in new page}
+            // document.write("Deleted Successfully..")
+            //   ----------- OR ---------
+            // flag = confirm("Are you want to delete ?")
+            // if(flag == true){
+            //     alert("Deleted Successfully..")
+            //     console.log("Deleted Successfully ........");
+            //     document.write(" <h1 style='color:red;'> Deleted Successfully.. </h1> \n <a href='3.%20output%20methods.html'> Back </a>");
+            // }else{
+            //     document.querySelector("p").innerText = "You have canceled ! "
+            //     // document.querySelector("p").innerHTML = "<b><i><font color='red'>Not Deleted</font></i></b>";
+            //     // document.querySelector("p").outerHTML = "<b><i><font color='red'>Not Deleted</font></i></b>";
+            // }
+        }
+
+        function inputelement(){
+            result = prompt("enter your name","default value");
+            if(result == null){
+                 alert("you cancelled !")
+            }
+            else if(result == ""){
+                alert("you havn't pass any value ");
+            }
+            else{
+                alert("your value : " + result);
+                document.querySelector("#input_p").innerHTML = `Your value : ${result}`
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="deleteclick()">Delete</button> 
+    <p></p>
+    <button onclick="inputelement()" >Input</button>
+    <p id="input_p"></p>
+</body>
+</html> 

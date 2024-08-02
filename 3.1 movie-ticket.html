@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inox movies</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function bookclick(){
+            document.querySelector("#summaryContainer").style.display = "block";
+            document.getElementById("lblMovie").innerHTML = document.getElementById("lstMovie").value;
+            document.getElementById("lblCinema").innerHTML = document.getElementById("lstCinema").value;
+            document.getElementById("lblDate").innerHTML = document.getElementById("lstDate").value;
+            document.getElementById("lblTime").innerHTML = document.getElementById("lstTime").value;
+            document.getElementById("lblSeats").innerHTML = document.getElementById("lstSeats").value;
+
+            let movie =  document.getElementById("lstMovie").value;
+            let poster =  document.getElementById("poster");
+            let screen = "";
+
+            if(movie == "leo"){
+                poster.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dHxLyFCmuqtMxnGwPf0WNtJ2NQT5HavjUA&s"
+            }
+            else if (movie == "jawan"){
+                poster.src = "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Jawan_film_poster.jpg/220px-Jawan_film_poster.jpg"
+            }
+
+        }
+    </script>
+</head>
+<body class="container fluid">
+    <button ondblclick="" class="btn btn-warning w-25 mt-3" data-bs-toggle="modal" data-bs-target="#booking" >Quick Booking</button>
+     <div class="modal fade" id="booking">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-head d-flex justify-content-between">
+                    <h3 class="m-5">Quick Booking</h3>
+                    <button class="btn btn-close me-5 mt-5" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <nav class="d-flex justify-content-between bg-dark p-3 ms-5 me-5 ">
+                        <div class="">
+                            <select name="" id="lstMovie" class="form-select">
+                                <option value="">select movie</option>
+                                <option value="leo"> leo</option>
+                                <option value="jawan">Jawan</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="" id="lstCinema" class="form-select">
+                                <option value="">select cinema</option>
+                                <option value="amba">Amba</option>
+                                <option value="aakash">aakash</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="" id="lstDate" class="form-select">
+                                <option value="">select date</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="" id="lstTime" class="form-select">
+                                <option value="">select time</option>
+                                <option value="9:00">9:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="6:00">6:00</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="" id="lstSeats" class="form-select">
+                                <option value="">select seat</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button data-bs-dismiss="modal" onclick="bookclick()" class="btn btn-success rounded ms-5 ">Book Ticket</button>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="w-25" id="summaryContainer" style="display: none ;">
+        <h3 class="bg-dark text-white mt-3 p-2">Booking Summary</h3>
+        <img  height="400px" width="100%" id="poster" alt="">
+        <dl class="row">
+            <dt class="col-3">Movie</dt>
+            <dd class="col-9" id="lblMovie"></dd>
+            <dt class="col-3">Cinema</dt>
+            <dd class="col-9" id="lblCinema"></dd>
+            <dt class="col-3">Date</dt>
+            <dd class="col-9" id="lblDate"></dd>
+            <dt class="col-3">Time</dt>
+            <dd class="col-9" id="lblTime"></dd>
+            <dt class="col-3">Seats</dt>
+            <dd class="col-9" id="lblSeats"></dd>
+        </dl>
+        <button class="btn btn-link" data-bs-target="#booking" data-bs-toggle="modal ">Modify </button>
+     </div>   
+</body>
+</html>
