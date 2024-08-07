@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function disableddd(){
+            let checkBoxx = document.querySelector("#checkBoxx");
+            let text = document.querySelector("#text")
+
+            if(checkBoxx.checked){
+                text.disabled = true;
+                console.log("checked");
+            }else{
+                console.log("not checked");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="checkBoxx" onclick="disableddd()"> <label for="">Enable / disabled </label>
+        <dl>
+            <dt>Username</dt>
+            <dd><input type="text" id="text"></dd>
+        </dl>
+    </div>
+</body>
+</html>

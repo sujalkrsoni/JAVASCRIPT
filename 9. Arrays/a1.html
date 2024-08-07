@@ -1,0 +1,107 @@
+<script>
+    // let arr = [1,"tv" , true , ["delhi" ,"hyd"],function(){document.write("Hello funtion")}]
+    // document.write(arr[3][1] + "<br>");
+    // document.write(arr[4]());
+    // arr[4]() // right method 
+
+
+
+    // Arrays Methods (To read arrays elements)
+
+    let arr = ["Sujal" , "Sanjeev" , "Shweta"]
+
+    // Exp 1
+    document.write( arr.toString()  +"<br>")
+    document.write( arr.join(" --> ") +"<br>")
+    document.write( arr.slice(1,2) +"<br>")
+
+
+    document.write("<br> <br> <br> <br>");
+
+
+    // Exp 2
+    // map (returns the value )
+    arr.map(function(e){
+        document.write(e)
+    })
+    arr.map(function(e){
+        document.write(`<li> ${e} </li> <br>`)
+    })
+    arr.map(function(e){
+        document.write(`<input type="checkbox"> <label >${e}</lable> <br>`)
+    })
+
+
+    // forEach return value and also index
+    arr.forEach(function(e,index){
+        document.write(e + " index = " +index +"<br>")
+    })
+    arr.forEach((element,index )=> {
+        document.write(`${index} <input type="checkbox"> <label >${element}</lable> <button> Delete</button> <br>`)
+        
+    });
+
+
+    document.write("<br> <br> <br> <br>");
+
+
+
+    // find, return every element of condition which we passed (but only first occurence)
+    let salary = [30000,400000,20000,1200,12999,499893]
+    // i want only salay which is greater & equal than 20000
+
+   let result =  salary.find((e)=>{
+        return e >= 20000;
+    });
+    document.write(result +" <br>");
+
+    // filter is also similar like find . but it return all occurence 
+    result =  salary.filter((e)=>{
+        return e >= 20000;
+    });
+    document.write(result + "<br>");
+
+
+    document.write("<br> <br> <br> <br>");
+
+    // explicit method to read and return array elements 
+
+    // for of used to read all elements of array 
+    for(items of arr){
+        document.write(items + "<br>")
+    }
+
+    // for in used to read all properties of array (index)
+    for(property in arr){
+        document.write(property + "<br>")
+    }
+    for(property in arr){
+        document.write(`[${property}] ${arr[property]}  <br>`)
+    }
+
+
+    let arr2 = [[10,20,30],[40,50,60]];
+
+    for(items of arr2){
+        for(e of items){
+            document.write(`${e} `)
+        }
+        document.write("<br>")
+    }
+
+    document.write("<br> <br> <br> <br>");
+
+    arr2.map((e)=>{
+        document.write(` ${e} <br>`)
+    })
+
+    arr2.map((e)=>{
+        e.map((items)=>{
+            document.write(`${items} &nbsp;`)
+        })
+        document.write("<br>")
+    })
+    
+
+
+</script>

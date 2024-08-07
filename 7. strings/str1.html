@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verfiyName(){
+            var textName = document.querySelector("#text").value;
+            var email = document.querySelector("#email").value;
+            var err = document.querySelector("#para")
+            // if(textName.charCodeAt(0)>=65 && textName.charCodeAt(0)<=90){
+            //     err.innerHTML = ""
+            // }else{
+            //     err.innerHTML = "Name must start with Upper case".fontcolor("red")
+            // }
+            if(email.endsWith("gmail.com")){
+                err.innerHTML = ""
+            }else{
+                err.innerHTML = "only gmail is allowed"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input id="text" onkeyup="verfiyName()" type="text">
+        <input type="email" onblur="verfiyName()" id="email">
+        <p id="para"></p>
+    </div>
+</body>
+</html>

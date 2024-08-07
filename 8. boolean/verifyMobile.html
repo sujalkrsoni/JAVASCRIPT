@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        let pattern = / / ;
+        let flag = ""; 
+        let tip = "";
+        function countryverify(){
+            let country = document.querySelector("#country").value;
+            let num = document.querySelector("#txtNum");
+            num.placeholder = "hello"
+            console.log("clicked");
+            
+            switch(country){
+                case "INDIA" : 
+                pattern = /\+91\d{10}/;
+                num.placeholder = "eg +91 and 10 digits";
+                break;
+
+                case "USA" : 
+                pattern = /\+\(1\)\(\d{3}\)\s\d{4}-\d{4}/;
+                num.placeholder = "+(1)(453) 5678-6567"
+                break;
+
+                case "UK" : 
+                pattern =  /\+\(44\)\d{4}-\d{5}/
+                num.placeholder = "eg : +(44) 2345 24563"
+                break;
+
+                default : 
+                pattern = / /;
+                num.placeholder = "please select your country "
+                break ; 
+            }
+        }
+
+        function verifyClick(){
+            let num = document.querySelector("#txtNum").value;
+            let err = document.querySelector("#err");
+            if(num.match(pattern)){
+                document.write("verified..")
+            }else{
+                err.innerHTML = `Invaild Number ${document.querySelector("#txtNum").value}`
+            }
+
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <h3>Verify Mobile</h3>
+    <div class="form-control w-25 p-4">
+        <dl>
+            <dt>Select Your Country</dt>
+            <dd>
+                <select class="form-control" id="country" onchange="countryverify()">
+                    <option value="choose">Choose country</option>
+                    <option value="INDIA">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+            </dd>
+            <dt>phone Number</dt>
+            <dd><input type="text" class="form-control" id="txtNum"></dd>
+            <button class="btn btn-warning" onclick="verifyClick()" >Continue</button>
+        </dl>
+    </div>
+    <p id="err"></p>
+    
+</body>
+</html>

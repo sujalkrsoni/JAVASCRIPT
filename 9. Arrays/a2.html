@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function createTable(){
+            let container = document.querySelector("#container");
+            let table = document.createElement("table");
+            table.width = "80%";
+            table.border = "1";
+            let thead = document.createElement("thead");
+            let tr = document.createElement("tr");
+            let th1 = document.createElement("th");
+            let th2 = document.createElement("th");
+            let td = document.createElement("td");
+            th1.innerHTML = "Name"
+            th2.innerHTML = "price"
+
+            tr.appendChild(th1)
+            tr.appendChild(th2)
+            thead.appendChild(tr) 
+            table.appendChild(thead)
+            container.appendChild(table)
+    }
+    function createList(){
+        // let container = document.querySelector("#container2")
+        // let ol = document.createElement("ol")
+        // let li1 = document.createElement("li")
+        // let li2 = document.createElement("li")
+        // let li3 = document.createElement("li")
+        // let li4 = document.createElement("li")
+
+        // li1.innerHTML = "Hello"
+        // li2.innerHTML = "Hello"
+        // li3.innerHTML = "Hello"
+        // li4.innerHTML = "Hello"
+
+        // ol.appendChild(li1)
+        // container.appendChild(ol)
+
+
+        // or using map 
+
+        let arr = ["one" , "two", "three", "four"]
+        let container = document.querySelector("#container2")
+        let ol = document.createElement("ol")
+        container.appendChild(ol);
+        arr.map((e)=>{
+            let li = document.createElement("li")
+            li.innerHTML = e
+            ol.appendChild(li);
+        })
+        arr.map((e)=>{
+            // ol.style.listStyle = "none"
+            let li = document.createElement("li")
+            let a = document.createElement("a")
+            a.innerHTML = e
+            a.href = `${e}.html`
+            li.appendChild(a);
+            ol.appendChild(li);
+        })
+
+    }
+
+    function createDropDown(){
+        let container = document.querySelector("#container3")
+        let select = document.createElement("select")
+        container.appendChild(select)
+        let items = ["Phone", "iphone", "pc", "computer"]
+        items.map((e)=>{
+            let option = document.createElement("option")
+            option.innerHTML = e;
+            select.appendChild(option);
+        })
+    }
+
+    </script>
+</head>
+<body>
+    <button onclick="createTable()" class="btn btn-success m-3">Generate Table </button>
+    <button onclick="createList()" class="btn btn-outline-danger m-3">Create List</button>
+    <button class="btn btn-primary" onclick="createDropDown()">Create DropDown</button>
+    <div id="container">
+
+    </div>
+    <div id="container2">
+
+    </div>
+    <div id="container3">
+
+    </div>
+</body>
+</html>

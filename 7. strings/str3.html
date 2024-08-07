@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = "Welcome to my youtube channel"
+        document.write(str.substr(7,0) + "-<br>"); // from 7 index 0 element
+        document.write(str.substr(7,1) + "-<br>"); // from 7 index 1 element but 1 is not include that means it is also again zero
+        document.write(str.substr(7,2) + "<br>");   // from 7 index , 2 elements  but 2 is not include that means 1 element
+        
+        
+        document.write(str.slice(7,0) + "-<br>");  // invaild 
+        document.write(str.slice(7,2) + "-<br>"); // invalid syntax , because from 7 to 2 can't go (reverse)
+        document.write(str.slice(7) + "<br>");   // from 7 to end index
+        document.write(str.slice(7,20) + "<br>");  // from 7 to 19th index
+
+
+        document.write(str.substring(7) + " ----substring  <br>") 
+        document.write(str.substring(7,0) + "<br>")    // substring can be read from both direction 
+        document.write(str.substring(7,3) + "<br>")    // substring can be read from both direction 
+        document.write(str.substring(7,30) + "<br>")    // substring can be read from both direction 
+
+        let str2 = "HOME | ABOUT | CONTACT"
+        let items = str2.split('|')  // always use single quote in split . after using double quote that will be also 
+        document.write(items)
+        console.log(items);
+        document.write(`
+            <br>
+            ${items[0]} <br>
+            ${items[1]} <br>
+            ${items[2]} <br>
+        `)
+
+        var contact = "sujalsoni7@gmail.com , sanjeev@gamil.com"
+        var [sujal , sanjeev,sonu] = contact.split(',')
+        document.write( "sujal =" +" " + sujal + "<br> sanjeev ="+ " "+ sanjeev + "<br>"+ sonu);
+
+
+        function check(){
+            let password = document.querySelector("#password").value;
+            if(password.trim() == "sujal"){   // trim is used to delete space from start and end 
+                window.alert("successfully")
+                
+            }else{
+
+                window.alert("wrong password ")
+            }
+        }
+        function verifyPassword(){
+            let password = document.querySelector("#password2").value;
+            let err = document.querySelector("#err")
+            let regularExpression = /(?=.*[A-Z])\w{4,15}/;
+            if(password.match(regularExpression)){
+                err.innerHTML = "Strong Password".fontcolor("green")
+            }else{
+                if(password.length < 4){
+                    err.innerHTML = " poor Password".fontcolor("red")
+                }else{
+                    err.innerHTML = " Weak Password".fontcolor("goldenrod")
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="password" onblur="check()" id="password">
+    <dl>
+        <dt>Password :</dt>
+        <dd>
+            <input type="password" onkeyup="verifyPassword()" id="password2">
+        </dd>
+    </dl>
+    <p id="err"></p>
+</body>
+</html>
