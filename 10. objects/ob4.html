@@ -1,0 +1,23 @@
+<script>
+    let obj = {
+        "name" : "shoes",
+        "price" : 1999,
+        "qty" : 2,
+        "total1" : this.price * this.qty,  // object can't handle expression in vlaue of key  
+        "total2" : function(){
+            return this.price * this.qty;
+        },
+        "print" : function(){
+            document.write(`
+            name : ${obj.name} <br>
+            price : ${obj.price} <br>
+            qty : ${obj.qty} <br>
+            total1 : ${obj.total1}  <br>
+            total2 : ${obj.total2().toLocaleString('en-in',{style : "currency",currency : 'INR'})} <br>    
+            `)
+        }
+    }
+ 
+    obj.print();
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function timeLoad(){
+            var now = new Date()
+            var time = now.toLocaleTimeString()
+            document.querySelector("p").innerHTML = time;
+        }
+        
+        let timer ;
+        function start(){
+            timer = setInterval(()=>{
+                timeLoad();
+            },1)
+        }
+        function stop(){
+            clearInterval(timer)
+        }    
+    </script>
+</head>
+<body onload="start()">
+    <p align="center"></p>
+    <div align="center">
+        <button onclick="start()">Start</button>
+        <button onclick="stop()" >Stop</button>
+    </div>
+</body>
+</html>

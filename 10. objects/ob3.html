@@ -1,0 +1,63 @@
+<script>
+
+// object manipulation ---->
+    // how to read key of object/Json data 
+    // method 1
+    fetch("../data/product.json")
+    .then((response)=>{
+       return response.json();
+    })
+    .then((product)=>{
+        for(var property in product){
+            document.write(property );
+            // document.write(" "+typeof property )  // type of property 
+            // document.write("<br> <br> "+ product[property]) // value of object 
+            // document.write( "--"+ typeof product[property] + "<br>") // type of value of object 
+        }
+    })
+
+    // method 2 
+    fetch("../data/product.json")
+    .then((response)=>{
+       return response.json();
+    })
+    .then((product)=>{
+        Object.keys(product).map((key)=>{    // make sure you have write "keys" after object
+            document.write(key + "<br>");
+        })
+    })
+
+
+
+
+    fetch("../data/product.json")
+    .then((response)=>{
+       return response.json();
+    })
+    .then((product)=>{
+        // lenght of object 
+        document.write(Object.keys(product).length);
+
+        document.write("<br> <br> <br>")
+
+
+        // delete key of object 
+        delete product.title 
+        Object.keys(product).map((key)=>{    
+            document.write(key + "<br>");
+        })
+
+
+        // check key is present or not 
+        if("stock" in product){
+            document.write("stock = " + product.stock)
+        }else{
+            document.write("NOT Avalilable")
+        }
+
+    })
+
+
+
+
+</script>
