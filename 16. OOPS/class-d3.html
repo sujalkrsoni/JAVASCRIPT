@@ -1,0 +1,18 @@
+<script>
+    class product{
+        productName = "";
+        productPrice = 0;
+        productQty = 0;
+        total(){
+            return this.productPrice * this.productQty;
+        }
+        print(){
+            return `ProuctName = ${this.productName} <br> productPrice = ${this.productPrice} <br> productqty = ${this.productQty} <br> total = ${this.total()}`
+        }
+    }
+    let obj1 = new product();
+    obj1.productName = prompt("enter product name");
+    obj1.productPrice = prompt("Enter product Price");
+    obj1.productQty = prompt("Enter product qty");
+    document.write(obj1.print())
+</script> 

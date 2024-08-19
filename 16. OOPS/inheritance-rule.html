@@ -1,0 +1,14 @@
+<script>
+    class superClass{
+        constructor(){
+            document.write("Super class called <br>")
+        }
+    }
+    class derivedClass extends superClass {
+        constructor(){ 
+            // super(); // calling super class constructor (it must be called otherwise you will face error)
+            document.write("Derived class called")
+        }
+    }
+    let obj1 = new derivedClass();
+</script>

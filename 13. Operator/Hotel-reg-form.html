@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function registerClick(){
+            let roomType = "";
+            let amenities = "";
+            let total = 0 ;
+            let deluxPrice = 0;
+            let SuitePrice = 0;
+            let acRoomPrice = 0;
+            let lockerRoomPrice = 0;
+            let roomPrice = 0;
+            let amenitiesPrice = 0;
+            let extraPersonCharge = 0 ;
+            let balAmount = 0;
+
+            let userName = document.querySelector("#customerName").value;
+            let checkInDate = document.querySelector("#checkInDate").value;
+            let days = document.querySelector("#totalDays").value;
+            let person = document.querySelector("#totalPerson").value;
+            let delux = document.querySelector("#delux")
+            let suite = document.querySelector("#suite") 
+            let acRoom = document.querySelector("#acRoom")
+            let lockerRoom = document.querySelector("#lockerRoom")
+            let advanceAmount = document.querySelector("#advAmount").value;
+            
+            if(delux.checked){
+                roomType = "delux"
+                // deluxPrice = 2500;
+                roomPrice = 2500;
+
+            }
+            if(suite.checked){
+                roomType = "suite"
+                // SuitePrice = 4000;
+                roomPrice = 4000;
+            }
+
+            if(acRoom.checked){
+                amenities += "A/c room " + "+" + " "
+                acRoomPrice = 1000;
+                amenitiesPrice += acRoomPrice;
+            }
+            if(lockerRoom.checked){
+                amenities += " Locker Room" 
+                lockerRoomPrice = 300;
+                amenitiesPrice += lockerRoomPrice;
+            }
+            if(person>2){
+                let extraPerson = person - 2;
+                extraPersonCharge += (extraPerson * 1000 * days);
+            }
+
+            total = ((roomPrice + amenitiesPrice )*days )+ extraPersonCharge;
+            console.log(total);
+            balAmount = total - advanceAmount;
+
+            document.querySelector("#lstCustomerName").innerHTML = userName;
+            document.querySelector("#lstCheckInDate").innerHTML = checkInDate;
+            document.querySelector("#lsttotalDays").innerHTML = days;
+            document.querySelector("#lstAdvAmount").innerHTML = advanceAmount;
+            document.querySelector("#lstroomType").innerHTML = roomType;
+            document.querySelector("#lsttotalPerson").innerHTML = person;
+            document.querySelector("#lstAmenities").innerHTML = amenities;
+            document.querySelector("#totalAmount").innerHTML = `Room Price ${roomPrice} + Ameninties Price ${amenitiesPrice} * Days ${days} + Extra person change ${extraPersonCharge} <br> Total = ${total}`
+            document.querySelector("#balAmount").innerHTML = balAmount;
+            
+            advanceAmountNextClick()
+
+        }
+        function customerNextClick(){
+            document.querySelector("#navroomType").className = "active nav-link "
+            document.querySelector("#roomType").className = "active tab-pane"
+            document.querySelector("#customerInfo").className = " tab-pane "
+            document.querySelector("#navcustomerInfo").className = "nav-link "
+        }
+        function roomTypeNextClick(){
+            document.querySelector("#navamenities").className = "active nav-link "
+            document.querySelector("#amenities").className = "active tab-pane"
+            document.querySelector("#navroomType").className = "nav-link "
+            document.querySelector("#roomType").className = "tab-pane"
+        }
+        function amenitiesNextClick(){
+            document.querySelector("#navamenities").className = "nav-link "
+            document.querySelector("#amenities").className = "tab-pane"
+            document.querySelector("#navAdvAmount").className = " active nav-link "
+            document.querySelector("#advanceAmountTab").className =  " active tab-pane"
+        }
+        function advanceAmountNextClick(){
+            document.querySelector("#navBookingSummary").className = "active nav-link "
+            document.querySelector("#bookingSummary").className = " active tab-pane"
+            document.querySelector("#navAdvAmount").className = "nav-link "
+            document.querySelector("#advanceAmountTab").className =  "tab-pane"
+        }
+
+        
+
+    </script>
+</head>
+<body class="container-fluid">
+    <header class="d-flex justify-content-center p-2">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a id="navcustomerInfo" data-bs-toggle="tab" class="nav-link active" href="#customerInfo">Customer Info</a></li>
+            <li class="nav-item"><a id="navroomType" data-bs-toggle="tab" class="nav-link" href="#roomType">Select Room Type</a></li>
+            <li class="nav-item"><a id="navamenities" data-bs-toggle="tab" class="nav-link" href="#amenities">Select Amenities</a></li>
+            <li class="nav-item"><a id="navAdvAmount" data-bs-toggle="tab" class="nav-link" href="#advanceAmountTab">Advance Amount</a></li>
+            <li class="nav-item"><a id="navBookingSummary" data-bs-toggle="tab" class="nav-link" href="#bookingSummary">Booking Summary</a></li>
+        </ul>
+    </header>
+    <div class="tab-content">
+        <div class="tab-pane active" align="center" id="customerInfo">
+            <div class="form-control w-25 m-5" align="left">
+                <dl >
+                    <dt>Customer Name</dt>
+                    <dd><input id="customerName"  class="form-control" type="text"></dd>
+                    <dt>Check in date</dt>
+                    <dd><input id="checkInDate" class="form-control" type="date" name="" value=""></dd>
+                    <dt>Total no of days</dt>
+                    <dd><input id="totalDays" class="form-control" type="number"></dd>
+                    <dt>Total no of person</dt>
+                    <dd><input id="totalPerson" class="form-control" type="number"></dd>
+                    <button onclick="customerNextClick()" class="btn btn-warning w-100">Next</button>
+                </dl>
+            </div>
+        </div>
+        <div class="tab-pane" id="roomType" align="center">
+            <div class="form-control p-4 m-5"  style="width: 500px;">
+                <div class="d-flex m-2">
+                    <div>
+                        <img src="../img1.jpg" class="w-75" alt=""> <br>
+                        <input type="radio" class="" name="room" id="delux" value=""><label for="">Delux Room</label>
+                    </div>
+                    <div>
+                        <img src="../img2.jpg" class="w-75" alt=""> <br>
+                        <input type="radio" class="" name="room" id="suite" value=""><label for="">Suite Room</label>
+                    </div>
+                </div>
+                <button onclick="roomTypeNextClick()" class="btn btn-warning w-100">Next</button>
+            </div>
+        </div>
+        <div class="tab-pane" id="amenities" align="center">
+            <div class="form-control p-4 m-5"  style="width: 500px;">
+                <div class="d-flex m-2">
+                    <div>
+                        <img src="../img1.jpg" class="w-75" alt=""> <br>
+                        <input type="checkbox" class="" name="room" id="acRoom" value=""><label for="">A/c Room</label>
+                    </div>
+                    <div>
+                        <img src="../img2.jpg" class="w-75" alt=""> <br>
+                        <input type="checkbox" class="" name="room" id="lockerRoom" value=""><label for="">Locker Room</label>
+                    </div>
+                </div>
+                <button onclick="amenitiesNextClick()" class="btn btn-warning w-100">Next</button>
+            </div>
+        </div>
+        <div class="tab-pane" id="advanceAmountTab" align="center">
+            <div class="form-control p-4 m-5  text-start"  style="width: 500px;">
+                <dl>
+                    <dt>Advance Amount</dt>
+                    <dd>
+                        <input class="form-control p-2 mb-4 mt-2" type="number" min="200" name="room" id="advAmount" value="200">
+                        <button onclick="registerClick()" class="btn btn-warning w-100">Register</button>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="tab-pane" id="bookingSummary" align="center">
+            <div class="form-control p-4 m-5  text-start"  style="width: 500px;">
+                <dl class="row">
+                    <dt class="col-6">Customer Name :</dt>
+                    <dd class="col-6" id="lstCustomerName"></dd>
+                    <dt class="col-6">Check in date :</dt>
+                    <dd class="col-6" id="lstCheckInDate"></dd>
+                    <dt class="col-6">Total Number of Days :</dt>
+                    <dd class="col-6" id="lsttotalDays"></dd>
+                    <dt class="col-6">Total Person :</dt>
+                    <dd class="col-6" id="lsttotalPerson"></dd>
+                    <dt class="col-6">Room Type :</dt>
+                    <dd class="col-6" id="lstroomType"></dd>
+                    <dt class="col-6">Amenities :</dt>
+                    <dd class="col-6" id="lstAmenities"></dd>
+                    <dt class="col-6">Total</dt>
+                    <dd class="col-6" id="totalAmount"></dd>
+                    <dt class="col-6">Advance Amount :</dt>
+                    <dd class="col-6" id="lstAdvAmount"></dd>
+                    <dt class="col-6">Balance Amount :</dt>
+                    <dd class="col-6" id="balAmount"></dd>
+                    <button class="btn btn-warning w-100 mt-4 ">Confirm</button>
+                </dl>
+            </div>
+        </div>
+        <!-- <div class="modal" id="sumarrymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form class="form-control p-4 m-5  text-start"  style="width: 500px;">
+                            <dl class="row">
+                                <dt class="col-6">Customer Name :</dt>
+                                <dd class="col-6" id="lstCustomerName"></dd>
+                                <dt class="col-6">Check in date :</dt>
+                                <dd class="col-6" id="lstCheckInDate"></dd>
+                                <dt class="col-6">Total Number of Days :</dt>
+                                <dd class="col-6" id="lsttotalDays"></dd>
+                                <dt class="col-6">Total Person :</dt>
+                                <dd class="col-6" id="lsttotalPerson"></dd>
+                                <dt class="col-6">Room Type :</dt>
+                                <dd class="col-6" id="lstroomType"></dd>
+                                <dt class="col-6">Amenities :</dt>
+                                <dd class="col-6" id="lstAmenities"></dd>
+                                <dt class="col-6">Advance Amount :</dt>
+                                <dd class="col-6" id="lstAdvAmount"></dd>
+                                <dt class="col-6">Balance Amount :</dt>
+                                <dd class="col-6" id="balAmount"></dd>
+                                <button class="btn btn-warning w-100 mt-4 ">Confirm</button>
+                            </dl>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> -->
+
+    </div>
+</body>
+</html>

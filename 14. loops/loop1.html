@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let menuItems = [
+            {category : "Electronic" , product : ["Tv","fridge","ac"]},
+            {category : "fashion" , product : ["men","women","kids"]}
+        ]
+        function bodyLoad(){
+            for(let i = 0; i<menuItems.length;i++){
+                let olLi = document.createElement("li");
+                olLi.innerHTML = menuItems[i].category;
+                for(let j =0; j<menuItems[i].product.length;j++){
+                    let ul = document.createElement("ul");
+                    let ulLi = document.createElement("li");
+                    ulLi.innerHTML = menuItems[i].product[j];
+                    ul.appendChild(ulLi);
+                    olLi.appendChild(ul);
+                    document.querySelector("ol").appendChild(olLi);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <ol></ol>
+</body>
+</html>

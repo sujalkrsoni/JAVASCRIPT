@@ -1,0 +1,51 @@
+<script>
+    class numbers{
+        num1 ;
+        num2 ;
+        greetings() {
+            document.write("Hiiii")
+        }
+    }
+    class addition extends numbers
+    {
+        task = "addition";
+        print() {
+            super.greetings();   // if we have declare a method in parent class then we have to access that through super.method() name ;
+            document.write(this.num1 + this.num2);   // otherwise we have to acces through this keyword . here super keywork is not working 
+            document.write(super.num1 + super.num2)   // check this line . it will be give error. it will show nan
+        }
+    }
+    class subtraction extends numbers
+    {
+        task = "subtraction";
+        print() {
+            document.write(this.num1 - this.num2);
+        }
+    }
+    class multiplication extends numbers
+    {
+        task = "multiplication" ;
+        print() {
+            document.write(this.num1 * this.num2);
+        }
+    }
+    class division extends numbers
+    {
+        task = "division" ;
+        print() {
+            document.write(this.num1 / this.num2);
+        }
+    }
+    let operations = new Array(new addition(),new subtraction(),new multiplication(),new division())
+    let task = prompt("enter task")
+    let num1 = parseInt(prompt("Enter 1st num"))
+    let num2 = parseInt(prompt("Enter 2nd num"))
+
+    for(operation of operations){
+        operation.num1 = num1;
+        operation.num2 = num2;
+        if(operation.task == task){
+            operation.print();
+        }
+    }
+</script>

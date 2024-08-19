@@ -1,0 +1,23 @@
+<script>
+    function FetchData(url, success, failure)
+    {
+         if(url==="http://fakestoreapi.com&quot"){
+            success({StatusText: "Success : Data Fetched", StatusCode:200, Data:["All","Electronics","Footwear","Fashion"]});
+         }
+         else {
+            failure("404 Error: Invalid URL");
+         }
+    }
+    FetchData(
+     prompt("Enter API Url"),
+     function(response){
+         document.write(`<h2>${response.StatusCode} : ${response.StatusText}</h2>`);
+         response.Data.map(function(item){
+            document.write(`<li>${item}</li>`);
+         })
+     },
+     function(error){
+        document.write(error);
+     }
+     )
+</script>

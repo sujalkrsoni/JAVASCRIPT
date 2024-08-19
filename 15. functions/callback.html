@@ -1,0 +1,21 @@
+<script>
+    function FetchData(url, success, failure)
+    {
+         if(url==="http://fakestoreapi.com&quot"){
+            success();
+         }
+         else {
+            failure();
+         }
+    }
+    // calling fetch(url,func,func);
+    FetchData(
+     prompt("Enter API Url"),
+     function(){
+        document.write("Data Fetched Successfully...");
+     },
+     function(){
+        document.write("404 Error: Invalid URL");
+     }
+     )
+</script>

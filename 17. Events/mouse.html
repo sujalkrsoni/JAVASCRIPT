@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            display: grid;
+            grid-template-columns: 1fr 11fr;
+        }
+        .zoomIn{
+            width: 600px;
+            height: 800px;
+        }
+        .zoomOut{
+            width: 350px;
+            height: 440px;
+        }
+    </style>
+    <script>
+        function preview(path){
+
+            document.querySelector("#imgPreview").src = path;
+        }
+        function zoomIn(){
+            document.querySelector("#imgPreview").className ="zoomIn"
+        }
+        function zoomOut(){
+            document.querySelector("#imgPreview").className = "zoomOut"
+        }
+    </script>
+</head>
+<body>
+    <section>
+        <nav>
+            <div>
+                <img onmouseover="preview(this.src)" style="border: 1px solid black; margin: 2px; cursor: pointer;" src="https://m.media-amazon.com/images/I/616wnQmPQ-L._SX679_.jpg" width="100" height="100"  alt="">
+                <img onmouseover="preview(this.src)" style="border: 1px solid black; margin: 2px; cursor: pointer;" src="https://m.media-amazon.com/images/I/91MdUXgvMTL._SL1500_.jpg" width="100" height="100"  alt="">
+                <img onmouseover="preview(this.src)" style="border: 1px solid black; margin: 2px; cursor: pointer;" src="https://m.media-amazon.com/images/I/611DUOU0OML._SL1500_.jpg" width="100" height="100"  alt="">
+                <img onmouseover="preview(this.src)" style="border: 1px solid black; margin: 2px; cursor: pointer;" src="https://m.media-amazon.com/images/I/51Fiehk-xlL._SX679_.jpg" width="100" height="100"  alt="">
+            </div>
+        </nav>
+        <main>
+            <div style="width: 350px; height: 440px; overflow: hidden; border: 1px solid black;">
+                <img src="" onmousedown="zoomIn()" onmouseup="zoomOut()" alt="" id="imgPreview" width="350" height="440">
+            </div>
+        </main>
+    </section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Employee
+        {
+            firstName ;
+            lastName;
+            designation;
+            print(){
+                document.write(`${this.firstName} ${this.lastName} ${this.designation}`)
+            }
+        }
+        class developer extends Employee
+        {
+            firstName = "Sujal";
+            lastName = "kumar";
+            designation = "Developer";
+            role = "developer role : build application"
+            print(){
+                super.print();
+                document.write(`${this.role}`)
+            }
+        }
+        class admin extends Employee
+        {
+            firstName = "Sanjeev";
+            lastName = "soni";
+            designation = "admin";
+            role = "Amin : authorization";
+            print(){
+                super.print();
+                document.write(`${this.role}`)
+            }
+        }
+        class manager extends Employee
+        {
+            firstName = "shweta";
+            lastName = "soni";
+            designation = "manager";
+            role = "Amin : manage";
+            print(){
+                super.print();
+                document.write(`${this.role}`)
+            }
+        }
+
+        let Employees = new Array(new developer(),new admin(),new manager());
+        let designation = prompt("enter designation");
+        for(let employee of Employees ){
+            if(employee.designation == designation){
+                employee.print();
+            }
+        }
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

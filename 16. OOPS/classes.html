@@ -1,0 +1,22 @@
+<script>
+    class product{
+        Name = "";
+        Price = 0;
+        Stock = false;
+        Cities = [];
+        Ratting = {Rate : 0 , Count : 0}
+    }
+
+    let tv = new product();
+    tv.Name = prompt("Enter Tv name");
+    tv.Price = prompt("Enter Price");
+    tv.Stock = (prompt("Enter stock")==="true"?true:false);
+    for(let i = 0;i<2;i++){
+        tv.Cities = prompt("Enter Cities");
+    }
+    tv.Ratting.Rate = parseInt(prompt("enter rate"))
+    tv.Ratting.Count = parseInt(prompt("enter ratting count"))
+    document.write(tv);   // [object Object]
+    document.write(JSON.stringify(tv)); // {"Name":"samsung","Price":"362352","Stock":"true","Cities":"punjab","Ratting":{"Rate":0,"Count":0}}
+    console.log(JSON.stringify(tv));
+</script>

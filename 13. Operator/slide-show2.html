@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function loadProduct(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then((res)=>{
+                return res.json();
+            })
+            .then((product)=>{
+                document.getElementById("lblTitle").innerHTML = product.title;
+                document.getElementById("imgProduct").src = product.image;
+                document.getElementById("lblPrice").innerHTML = `&#8377 ${product.price}`;
+            })
+        }
+        var productId = 1;
+        var timer ;
+        function nextClick(){
+            timer =  setInterval(()=>{
+                if(productId<=21){
+                    productId++;
+                    if(productId == 21){
+                    productId = 1;
+                    }
+                    loadProduct(productId);
+                }
+            },600)
+            document.querySelector("#timerDescription").innerHTML = "Slide show-started"
+        }
+        function backClick(){
+           clearInterval(timer)
+           document.querySelector("#timerDescription").innerHTML = "Slide show-Paused"
+        }
+        function bodyLoad(){
+            loadProduct(productId);
+        }
+    </script>
+</head>
+<body onload="bodyLoad()" class="container-fluid d-flex justify-content-center">
+    <div class="card p-4 mt-4 w-25">
+        <div class="card-header">
+            <div id="lblTitle"></div>
+        </div>
+        <div class="card-body p-4 position-relative">
+            <div id="lblPrice" class="position-absolute text-white ps-1 pe-1 bg-danger" style="border-radius: 25px;" ></div>
+            <img width="100%" height="250" id="imgProduct">
+        </div>
+        <div class="card-footer text-center">
+            <button onclick="nextClick()" class="btn btn-primary bi bi-play"></button>
+            <button onclick="backClick()" class="btn btn-primary bi bi-pause"></button><br>
+            <p class="fw-bold" id="timerDescription" ></p>
+        </div>
+    </div>
+</body>
+</html>

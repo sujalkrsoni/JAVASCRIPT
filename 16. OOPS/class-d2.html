@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class DataBase{
+            dataBaseName = "";
+            insert(){
+                return `connected to ${this.dataBaseName} - Record Inserted`
+            }
+            update(){
+                return `connected to ${this.dataBaseName} - Record update`
+            }
+            delete(){
+                return `connected to ${this.dataBaseName} - Record delete`
+            }     
+        }
+        function dataBaseAction(action){
+            let msg ;
+            let dbName = document.querySelector("select").value;
+            switch(action){
+                case 'insert':  
+                    let obj1 = new DataBase();
+                    obj1.dataBaseName = dbName;
+                    msg = obj1.insert();
+                    break;
+
+                case 'update':
+                    let obj2 = new DataBase();
+                    obj2.dataBaseName = dbName;
+                    msg = obj2.update();
+                    break;
+                
+                case 'delete':
+                    let obj3 = new DataBase();
+                    obj3.dataBaseName = dbName;
+                    msg = obj3.delete();
+                    break;
+            }
+            document.querySelector("p").innerHTML = msg;
+        }
+    </script>
+</head>
+<body>
+
+    <fieldset>
+        <legend>Connect with database</legend>
+        <dl>
+            <dt>Select Databse</dt>
+            <dd>
+                <select name="" id="">
+                    <option value="mysql">mysql</option>
+                    <option value="mongoDb">mongoDb</option>
+                    <option value="oracle">oracle</option>
+                </select>
+            </dd>
+            <dt>Select Action</dt>
+            <dd>
+                <button onclick="dataBaseAction('insert')">Insert</button>
+                <button onclick="dataBaseAction('update')">Update</button>
+                <button onclick="dataBaseAction('delete')">Delete</button>
+            </dd>
+        </dl>
+    </fieldset>
+
+    <p></p>
+    
+
+</body>
+</html>
