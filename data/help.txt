@@ -1,0 +1,2 @@
+hello i'm sujal kumar 
+this is ajax practice class

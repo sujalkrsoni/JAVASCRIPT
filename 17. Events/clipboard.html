@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // clipboard is temporary memory for windows.
+        // the content you cut or copy is kept on clipboard
+        // oncut,oncopy,onpaste 
+
+        function copyText(){
+            document.querySelector("#copyStatus").innerHTML = "Coppied !"
+        }
+        function cutText(){
+            document.querySelector("#copyStatus").innerHTML = "Removed & Coppied !"
+        }
+
+    </script>
+</head>
+<body>
+    <dl>
+        <input type="text" value="82735" oncut="cutText()" oncopy="copyText()">
+        <dd id="copyStatus"></dd>
+        <dt>Passoword</dt>
+        <dd><input type="password" placeholder="Your can't paste here" size="20" onpaste="return false" name="" value=""></dd>
+    </dl>
+    <form onsubmit="alert('Submitted !')" onreset="alert('reset the value')">
+        <input type="text">
+        <button>submit</button>
+        <button type="reset">clear</button>
+    </form>
+</body>
+</html>

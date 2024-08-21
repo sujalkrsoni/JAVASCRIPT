@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script>
+        function bodyLoad(){
+            let now = new Date();
+            document.querySelector("#time").innerHTML = `Page requested on => ${now.toLocaleString()}`;
+        }
+        function loadClick(){
+            let http = new XMLHttpRequest();
+            http.open("get", "../data/help.txt", true); // method,path,asynchornous => true,false
+            http.send();
+            http.onreadystatechange = function(){
+                if(http.readyState == 4){
+                    document.querySelector("#data").innerHTML = http.responseText;
+                    console.log(http.responseText);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <p id="time"></p>
+    <button onclick="loadClick()"> Load Help</button>
+    <pre id="data" ></pre>
+</body>
+</html>

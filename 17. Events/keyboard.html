@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verifyUser(){
+            let userId = document.querySelector("#userId").value;
+            let err = document.querySelector("#userErr")
+            fetch("../data/user.json")
+            .then((res)=>{
+                return res.json();
+            })
+            .then((users)=>{
+                for(user of users){
+                    console.log(user.userId);
+                    if(user.userId == userId){
+                        err.innerHTML = "Try another"
+                        break;
+                    }else{
+                        err.innerHTML = " "
+                    }
+                }    
+            })
+        }
+        function verifyCaps(e){
+            let pwdErr = document.querySelector("#pwdErr")
+            if(e.keyCode >=65 && e.keyCode <=90){
+                pwdErr.style.display = "Block"
+            }else{
+                pwdErr.style.display = "none"
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Register User </legend>
+        <dl>
+            <dt>User Id</dt>
+            <dd><input type="text" id="userId" onkeyup="verifyUser()"></dd>
+            <dd id="userErr"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" onkeypress="verifyCaps(event)" id="password"></dd>
+            <dd id="pwdErr" style="display: none;">
+                <span class="bi bi-exclamation-triangle"></span>Warning : caps on
+            </dd>
+        </dl>
+    </fieldset>
+</body>
+</html>

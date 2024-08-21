@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // for session storage 
+        // function bodyLoad(){
+        //     let userId = sessionStorage.getItem("userId")
+        //     if(userId === null){
+        //         location.href = 'session-storage-login.html'
+        //     }else{
+        //         document.querySelector("#head").innerHTML = `hello ${userId} !`
+        //     }
+        // }
+        // function signOut(){
+        //     sessionStorage.removeItem("userId")
+        //     location.href = 'session-storage-login.html'
+        // }
+
+
+        // for cookies
+        function bodyLoad(){
+            document.querySelector("#head").innerHTML = document.cookie.substring(document.cookie.indexOf("=")+1);
+        }
+        function signOut(){
+
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <h2>Home <button onclick="signOut()">Sign Out</button></h2>
+     <p id="head"></p>
+</body>
+</html>

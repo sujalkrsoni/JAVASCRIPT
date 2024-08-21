@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .zoomIn{
+        width: 500px;
+        height: 500px;
+    }
+    </style>
+    <script>
+        document.oncontextmenu = ()=>{
+            alert("right click not allowed !")
+            return false;  // important to reutrn false 
+        }
+        document.onselectstart = ()=>{
+            return false;
+        }
+        function zoomIn(){
+            document.querySelector("img").className = "zoomIn"
+        }
+    </script>
+</head>
+<body >
+    <img ondblclick="zoomIn()" src="https://yt3.googleusercontent.com/8gjld8X7j7NvoaqTcN3lWuC2vowDimXq7xpb5lI6nmIC-eFuXZ_f8lhrwG3n33IPevNfIjNU0A=s160-c-k-c0x00ffffff-no-rj" alt="">
+    <h2>You can't select text & copy the text </h2>
+    <h4>Right click is also not working </h4>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum molestias esse impedit quis possimus suscipit, ex nihil molestiae aliquid facere, quasi architecto atque in fugit labore nostrum! Molestias fugit, alias ad exercitationem, facere maiores itaque praesentium tenetur adipisci voluptatem dignissimos!</p>
+</body>
+</html>

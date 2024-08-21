@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let id = "sujal"
+        let pass = "sujal123"
+        
+        function loginclick(){
+            let userId = document.querySelector("#userId").value;
+            let userPass = document.querySelector("#userPass").value;
+            console.log(userId + userPass);
+
+            if(userId === id && pass === userPass){
+                location.href = "../13. Operator/kfc-online-accordian.html"
+            }else{
+                document.write("Error... you're not our member");
+            }
+       }
+    </script>
+</head>
+<body>
+    <input id="userId" type="text">
+    <input id="userPass" type="password">
+    <button onclick="loginclick()">Submit</button>
+
+</body>
+</html>

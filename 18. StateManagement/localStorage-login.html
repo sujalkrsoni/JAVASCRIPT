@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function login(){
+            let userId = document.querySelector("#userId").value;
+            localStorage.setItem("userId",userId);
+            location.href = "localStorage-hom.html"
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>UserName</dt>
+        <dd><input type="text" id="userId" name="userId"></dd>
+    </dl>
+    <button onclick="login()">Submit</button>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<script>
+    // document.write(`
+    //     Your browser version : ${navigator.appVersion} <br>
+    //     cookies : ${(navigator.cookieEnabled===true)?"You can login":"Enable cookies"} <br>
+    //     platform : ${navigator.platform} <br>
+    //     language : ${navigator.language} <br>
+
+    // `)
+    // document.write(" <br> <br> Extra plugins in your browser <br>")
+    // for(let item of navigator.plugins){
+    //     document.write(`${item.name} <br>`)
+    // }
+    // document.write(" <br> <br> Extra mimetypes in your browser <br>")
+    // for(let item of navigator.mimeTypes){
+    //     document.write(`${item.type} <br>`)
+    // }
+
+    // navigator.geolocation.getCurrentPosition((position)=>{
+    //     document.write(`
+    //         latitude : ${position.coords.latitude} <br>
+    //         longitude : ${position.coords.longitude} 
+    //     `)
+    //     // latitude 28.7352529, longitude 77.1655944 search on google map for geo location (28°44'06.9"N 77°09'56.1"E) 
+    // })
+
+
+    let date = new Date();
+    document.write(`
+        you opened the page at ${date.toLocaleTimeString()} <br>
+        You visited ${history.length} pages 
+    `)
+    // it tell about only for current tab not in another tab . 
+</script>
